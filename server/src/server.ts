@@ -1,13 +1,12 @@
 import App from "./app";
-import UsersController from "./users/users.controller";
+import UserController from "./users/users.controller";
+import AuthenticationController from "./authentication/authentication.controller";
 
-import * as mongoose from "mongoose";
 import "dotenv/config";
+import validateEnv from "./utils/validateEnv";
 
-const { MONGO_USER, MONGO_PASSWORD, MONGO_PATH } = process.env;
+validateEnv();
 
-mongoose.connect(`mongodb+srv://${MONGO_USER}:${MONGO_PASSWORD}${MONGO_PATH}`);
-
-const app = new App([new UsersController()], 5000);
+const app = new App([new UserController(), new AuthenticationController()]);
 
 app.listen();
