@@ -1,5 +1,5 @@
 import App from "./app";
-import UserController from "./users/users.controller";
+import UserController from "./user/user.controller";
 import AuthenticationController from "./authentication/authentication.controller";
 
 import "dotenv/config";
